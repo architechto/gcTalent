@@ -1,0 +1,27 @@
+<h1>Top Marketers in Toronto</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Added by</th>
+      <th>Seniority</th>
+      <th>Type Work</th>
+      <th>Location</th>
+      <th>LinkedIn</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @contact_entries.each do |contact_entries| %>
+      <tr>
+		<td><%= link_to contact_entries.name, contact_path(contact_entries) %></td>
+		<td><%= contact_entries.added_by %></td>
+		<td><%= contact_entries.seniority %></td>
+		<td><%= contact_entries.type_work %></td>
+		<td><%= contact_entries.location %></td>
+		<td><%= contact_entries.linkedin %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
