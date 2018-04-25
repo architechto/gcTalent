@@ -1,0 +1,37 @@
+<h1>Add a Marekter</h1>
+
+<%= form_for(@contact_entries) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name%>
+  </div>
+
+  <div class="field">
+    <%= form.label :seniority %>
+    <%= form.text_field :seniority%>
+  </div>
+
+  <div class="field">
+    <%= form.label :type_work %>
+    <%= form.text_field :type_work%>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location%>
+  </div>
+
+  <div class="field">
+    <%= form.label :linkedin %>
+    <%= form.text_field :linkedin%>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :added_by %>
+    <%= form.hidden_field :added_by, :value => current_user.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
