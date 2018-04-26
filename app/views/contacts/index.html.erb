@@ -14,12 +14,12 @@
   <tbody>
 	<% @contact_entries.each do |contact_entries| %>
       <tr>
-		<td><%= link_to contact_entries.name, contact_path(contact_entries) %></td>
-		<td><%= contact_entries.added_by %></td>
-		<td><%= contact_entries.seniority %></td>
-		<td><%= contact_entries.type_work %></td>
-		<td><%= contact_entries.location %></td>
-		<td><%= contact_entries.linkedin %></td>
+    		<td><%= link_to contact_entries.name, contact_path(contact_entries) %></td>
+    		<td><%= contact_entries.added_by %></td>
+    		<td><%= contact_entries.seniority %></td>
+    		<td><%= contact_entries.type_work %></td>
+    		<td><%= contact_entries.location %></td>
+    		<td><%= contact_entries.linkedin %></td>
       </tr>
     <% end %>
   </tbody>

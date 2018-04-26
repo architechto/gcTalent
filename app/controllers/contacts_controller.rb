@@ -23,4 +23,20 @@ class ContactsController < ApplicationController
 	    end
 	end
 
+	def edit
+		@contact_entries = Contact.find(params[:id])
+	end
+
+	def update
+		@contact_entries = Contact.find(params[:id])
+
+    	respond_to do |format|
+      		if @contact_entries.update(params.require(:contact).permit(:name, :seniority, :type_work, :location, :linkedin, :added_by))
+        		format.html { redirect_to contacts_path, notice: 'The record was successfully updated.' }
+      		else
+        		format.html { render :edit }
+      		end
+    	end
+  	end
+
 end
