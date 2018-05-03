@@ -15,6 +15,7 @@
     <% if current_user %>
       <%= link_to "Browse", root_path %>
       <%= link_to "Add Marketer", new_contact_path %>
+      <%= link_to "Profile", pages_profile_path %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "Browse", root_path %>

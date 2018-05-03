@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
-  def index
-  	@contact_entries = Contact.all
+
+  def profile
+/  	@profile_details = User.find(params[:d]) /
   end
+  
 end
