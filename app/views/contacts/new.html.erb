@@ -1,37 +1,53 @@
-<h1>Add a Marekter</h1>
+<div class="container-fluid">
+  <div class="row">
 
-<%= form_for(@contact_entries) do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name%>
-  </div>
+    <%= render "/shared/topbar" %>
+    <%= render "/shared/sidebar" %>
 
-  <div class="field">
-    <%= form.label :seniority %>
-    <%= form.text_field :seniority%>
-  </div>
+    <div class="text-center" style="margin:auto;">
 
-  <div class="field">
-    <%= form.label :type_work %>
-    <%= form.text_field :type_work%>
-  </div>
+      <h1>Add a Marketer</h1>
+      <br/>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location%>
-  </div>
+      <%= form_for(@contact_entries) do |form| %>
 
-  <div class="field">
-    <%= form.label :linkedin %>
-    <%= form.text_field :linkedin%>
-  </div>
+        <div class="field">
+          <%= form.label :name, class: 'sr-only'  %>
+          <%= form.text_field :name, class: 'form-control', placeholder: 'Name', autofocus: true %>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.label :seniority, class: 'sr-only'  %>
+          <%= form.text_field :seniority, class: 'form-control', placeholder: 'Seniority' %>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.label :type_work, class: 'sr-only'  %>
+          <%= form.text_field :type_work, class: 'form-control', placeholder: 'Type of Work' %>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.label :location, class: 'sr-only'  %>
+          <%= form.text_field :location, class: 'form-control', placeholder: 'Location' %>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.label :linkedin, class: 'sr-only'  %>
+          <%= form.text_field :linkedin, class: 'form-control', placeholder: 'LinkedIn' %>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.hidden_field :added_by %>
+          <%= form.hidden_field :added_by, :value => current_user.id %>
+        </div>
+        <br>
+        <div class="actions">
+          <%= form.submit "Enter", class: 'btn btn-lg btn-primary btn-block'%>
+        </div>
 
-  <div class="field">
-    <%= form.hidden_field :added_by %>
-    <%= form.hidden_field :added_by, :value => current_user.id %>
-  </div>
+      <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
+    </div>
+
   </div>
-<% end %>
+</div>

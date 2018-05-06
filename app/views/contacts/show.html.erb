@@ -1,21 +1,40 @@
-<div>
-	<h1><%= @contact_entries.name %></h1>
-	<em><%= @contact_entries.location %>, <%= @contact_entries.linkedin %></em>
-    <p><%= link_to "Edit", edit_contact_path %></p>
-</div>
-<br/>
-<div>
-	<p><strong>Title:</strong> <%= @contact_entries.seniority %></p>
-	<p><strong>Type of work:</strong> <%= @contact_entries.type_work %></p>
-</div>
-<br/>
-<div>
-	<p><strong>Added by:</strong> <%= @contact_entries.added_by %></p>
-</div>
-<br/>
-<div>
-	<p><strong>Specialties:</strong></p>
-	<% @contact_entries.specialties.each do |skill| %>
-  		<p>- <%= skill.name %></p>
-	<% end %>
+<div class="container-fluid">
+  <div class="row">
+
+  <%= render "/shared/topbar" %>
+  <%= render "/shared/sidebar" %>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2"><%= @contact_entries.name %></h1>
+			<div class="btn-toolbar mb-2 mb-md-0">
+				<div class="btn-group mr-2">
+					<button class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_contact_path %></button>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<ul class="list-group">
+			  <li class="list-group-item"><strong>Title:</strong> <%= @contact_entries.seniority %></li>
+			  <li class="list-group-item"><strong>Type of work:</strong> <%= @contact_entries.type_work %></li>
+			  <li class="list-group-item"><strong>Added by:</strong> <%= @contact_entries.added_by %></li>
+			  <li class="list-group-item"><strong>Location:</strong> <%= @contact_entries.location %></li>
+			  <li class="list-group-item"><%= @contact_entries.linkedin %></li>
+			</ul>
+		</div>
+		<br/>
+		<div>
+			<h6>Specialties:</h6>
+			<ul class="list-group">
+				<% @contact_entries.specialties.each do |skill| %>
+			  		<li class="list-group-item"><%= skill.name %></li>
+				<% end %>
+			</ul>
+		</div>
+
+    </main>
+
+  </div>
 </div>

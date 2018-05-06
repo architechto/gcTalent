@@ -1,11 +1,15 @@
 class ContactsController < ApplicationController
 
 	def index
-	    @contact_entries = Contact.all
+	    if current_user
+		    @contact_entries = Contact.all
+		else
+	        redirect_to new_user_session_path
+		end
 	end
 
 	def show
-	    @contact_entries = Contact.find(params[:id])
+	   @contact_entries = Contact.find(params[:id])
 	end
 
 	def new
@@ -14,6 +18,7 @@ class ContactsController < ApplicationController
 
 	def create
 	    @contact_entries = Contact.new(params.require(:contact).permit(:name, :seniority, :type_work, :location, :linkedin, :added_by))
+
 	    respond_to do |format|
 	      if @contact_entries.save
 	        format.html { redirect_to contacts_path, notice: 'The new marketer was successfully added' }
@@ -32,7 +37,7 @@ class ContactsController < ApplicationController
 
     	respond_to do |format|
       		if @contact_entries.update(params.require(:contact).permit(:name, :seniority, :type_work, :location, :linkedin, :added_by))
-        		format.html { redirect_to contacts_path, notice: 'The record was successfully updated.' }
+        		format.html { redirect_to contact_path, notice: 'The record was successfully updated.' }
       		else
         		format.html { render :edit }
       		end
