@@ -1,8 +1,10 @@
 <%= stylesheet_link_tag 'page_forms', media: 'all', 'data-turbolinks-track': 'reload' %>
 <div class="text-center" style="margin:auto;">
   <h1 class="h3 mb-3 font-weight-normal">Log in</h1>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+  <div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>  
+
+      <%= devise_error_messages! %>
 
     <div class="field">
       <%= f.label :email, class: 'sr-only' %><br />
@@ -10,7 +12,7 @@
     </div>
     <div class="field">
       <%= f.label :password, class: 'sr-only' %>
-    <br />
+      <br />
       <%= f.password_field :password, class: 'form-control', placeholder: 'Password', autocomplete: "off" %>
     </div>
     <br>
@@ -26,6 +28,7 @@
     <% end -%>
 
   <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
 </div>
