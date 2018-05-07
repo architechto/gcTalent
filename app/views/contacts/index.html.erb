@@ -6,16 +6,34 @@
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Top Marketers in Toronto</h1>
+        <h1 class="h2">List of Talent</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
-            <button class="btn btn-sm btn-outline-secondary">Share</button>
-            <button class="btn btn-sm btn-outline-secondary">Export</button>
+            <button class="btn btn-sm btn-default"><%= link_to "Back", :back %></button>
           </div>
-          <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button>
+          <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-outline-secondary dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Type Work</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+              </div>
+            </button>
+            <button class="btn btn-sm btn-outline-secondary dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Seniority</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+              </div>
+            </button>
+            <button class="btn btn-sm btn-outline-secondary dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Location</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -24,28 +42,23 @@
           <thead>
             <tr>
               <th>Name</th>
-              <th>Added by</th>
-              <th>Seniority</th>
               <th>Type Work</th>
+              <th>Seniority</th>
               <th>Location</th>
-              <th>LinkedIn</th>
             </tr>
           </thead>
           <tbody>
           <% @contact_entries.each do |contact_entries| %>
               <tr>
                 <td><%= link_to contact_entries.name, contact_path(contact_entries) %></td>
-                <td><%= contact_entries.added_by %></td>
-                <td><%= contact_entries.seniority %></td>
                 <td><%= contact_entries.type_work %></td>
+                <td><%= contact_entries.seniority %></td>
                 <td><%= contact_entries.location %></td>
-                <td><%= contact_entries.linkedin %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
       </div>
-
     </main>
     
   </div>
