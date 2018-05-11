@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
 	end
 
 	def create
-	    @contact_entries = Contact.new(params.require(:contact).permit(:name, :seniority, :type_work, :location, :linkedin, :added_by))
+	    @contact_entries = Contact.new(params.require(:contact).permit(:name, :seniority, :type_work, :location, :specialty, :linkedin, :added_by))
 
 	    respond_to do |format|
 	      if @contact_entries.save
@@ -36,7 +36,7 @@ class ContactsController < ApplicationController
 		@contact_entries = Contact.find(params[:id])
 
     	respond_to do |format|
-      		if @contact_entries.update(params.require(:contact).permit(:name, :seniority, :type_work, :location, :linkedin, :added_by))
+      		if @contact_entries.update(params.require(:contact).permit(:name, :seniority, :type_work, :location, :specialty, :linkedin, :added_by))
         		format.html { redirect_to contact_path, notice: 'The record was successfully updated.' }
       		else
         		format.html { render :edit }

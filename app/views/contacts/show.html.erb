@@ -19,21 +19,24 @@
 		</div>
 
 		<div>
+			<h6>Profile</h6>
 			<ul class="list-group">
 			  <li class="list-group-item"><strong>Title:</strong> <%= @contact_entries.seniority %></li>
 			  <li class="list-group-item"><strong>Type of work:</strong> <%= @contact_entries.type_work %></li>
-			  <li class="list-group-item"><strong>Added by:</strong> <%= @contact_entries.added_by %></li>
 			  <li class="list-group-item"><strong>Location:</strong> <%= @contact_entries.location %></li>
-			  <li class="list-group-item"><%= @contact_entries.linkedin %></li>
 			</ul>
 		</div>
-		<br/>
+		<br>
 		<div>
 			<h6>Specialties:</h6>
+			<textarea rows="5" cols="60" ><%= @contact_entries.specialty %></textarea>
+		</div>
+		<br>
+		<div>
+			<h6>Contact Details</h6>
 			<ul class="list-group">
-				<% @contact_entries.specialties.each do |skill| %>
-			  		<li class="list-group-item"><%= skill.name %></li>
-				<% end %>
+			  <li class="list-group-item"><strong>LinkedIn:</strong> <%= @contact_entries.linkedin %></li>
+			  <li class="list-group-item"><strong>Added by:</strong> <%= @contact_entries.added_by %></li>
 			</ul>
 		</div>
 

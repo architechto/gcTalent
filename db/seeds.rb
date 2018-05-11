@@ -5,6 +5,7 @@
 		seniority: "manager",
 		type_work: "brand",
 		location: "Toronto",
+		specialty: "This, that, such",
 		linkedin: "https://www.linkedin.com"
 	)
 end

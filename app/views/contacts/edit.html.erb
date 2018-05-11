@@ -17,27 +17,33 @@
 
       <%= form_for(@contact_entries) do |form| %>
       <div class="field">
-        <%= form.label :name, class: 'sr-only' %>
+        <%= form.label :name %>
         <%= form.text_field :name, class: 'form-control', placeholder: 'Name' %>
       </div>
       <br>
       <div class="field">
-        <%= form.label :seniority, class: 'sr-only' %>
+        <%= form.label :seniority %>
         <%= form.text_field :seniority, class: 'form-control', placeholder: 'Seniority' %>
       </div>
       <br>
       <div class="field">
-        <%= form.label :type_work, class: 'sr-only' %>
+        <%= form.label :type_work %>
         <%= form.text_field :type_work, class: 'form-control', placeholder: 'ype of Work' %>
       </div>
       <br>
       <div class="field">
-        <%= form.label :location, class: 'sr-only' %>
+        <%= form.label :location %>
         <%= form.text_field :location, class: 'form-control', placeholder: 'Location' %>
       </div>
       <br>
       <div class="field">
-        <%= form.label :linkedin, class: 'sr-only' %>
+        <%= form.label :specialty %>
+        <%= form.text_area :specialty, class: 'form-control', placeholder: 'Enter specialties separated by coma.
+For example: SEO, SEM, FB Ads.' %>
+      </div>
+      <br>
+      <div class="field">
+        <%= form.label :linkedin %>
         <%= form.text_field :linkedin, class: 'form-control', placeholder: 'LinkedIn' %>
       </div>
       <br>

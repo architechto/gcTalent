@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180426021151) do
     t.string "seniority"
     t.string "type_work"
     t.string "location"
+    t.text "specialty"
     t.string "linkedin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

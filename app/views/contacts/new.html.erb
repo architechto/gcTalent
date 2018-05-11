@@ -38,6 +38,12 @@
         </div>
         <br>
         <div class="field">
+          <%= form.label :specialty, class: 'sr-only' %>
+          <%= form.text_area :specialty, class: 'form-control', placeholder: 'Enter specialties separated by coma.
+For example: SEO, SEM, FB Ads.' %>
+        </div>
+        <br>
+        <div class="field">
           <%= form.label :linkedin, class: 'sr-only'  %>
           <%= form.text_field :linkedin, class: 'form-control', placeholder: 'LinkedIn' %>
         </div>
