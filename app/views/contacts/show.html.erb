@@ -1,46 +1,39 @@
-<div class="container-fluid">
-  <div class="row">
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-  <%= render "/shared/topbar" %>
-  <%= render "/shared/sidebar" %>
-
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-
-		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-			<h1 class="h2"><%= @contact_entries.name %></h1>
-			<div class="btn-toolbar mb-2 mb-md-0">
-				<div class="btn-group mr-2">
-					<button class="btn btn-sm btn-default"><%= link_to "Back", :back %></button>
-				</div>
-				<div class="btn-group mr-2">
-					<button class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_contact_path %></button>
-				</div>
+	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+		<h1 class="h2"><%= @contact_entries.name %></h1>
+		<div class="btn-toolbar mb-2 mb-md-0">
+			<div class="btn-group mr-2">
+				<button class="btn btn-sm btn-default"><%= link_to "Back", :back %></button>
+			</div>
+			<div class="btn-group mr-2">
+				<button class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_contact_path %></button>
 			</div>
 		</div>
+	</div>
 
-		<div>
-			<h6>Profile</h6>
-			<ul class="list-group">
-			  <li class="list-group-item"><strong>Title:</strong> <%= @contact_entries.seniority %></li>
-			  <li class="list-group-item"><strong>Type of work:</strong> <%= @contact_entries.type_work %></li>
-			  <li class="list-group-item"><strong>Location:</strong> <%= @contact_entries.location %></li>
-			</ul>
-		</div>
-		<br>
-		<div>
-			<h6>Specialties:</h6>
-			<textarea rows="5" cols="60" ><%= @contact_entries.specialty %></textarea>
-		</div>
-		<br>
-		<div>
-			<h6>Contact Details</h6>
-			<ul class="list-group">
-			  <li class="list-group-item"><strong>LinkedIn:</strong> <%= @contact_entries.linkedin %></li>
-			  <li class="list-group-item"><strong>Added by:</strong> <%= @contact_entries.added_by %></li>
-			</ul>
-		</div>
+	<div>
+		<h6>Profile</h6>
+		<ul class="list-group">
+		  <li class="list-group-item"><strong>Title:</strong> <%= @contact_entries.seniority %></li>
+		  <li class="list-group-item"><strong>Type of work:</strong> <%= @contact_entries.type_work %></li>
+		  <li class="list-group-item"><strong>Location:</strong> <%= @contact_entries.location %></li>
+		</ul>
+	</div>
+	<br>
+	<div>
+		<h6>Specialties:</h6>
+		<ul class="list-group">
+		  <li class="list-group-item"><%= @contact_entries.specialty %></li>
+		</ul>
+	</div>
+	<br>
+	<div>
+		<h6>Contact Details</h6>
+		<ul class="list-group">
+		  <li class="list-group-item"><strong>LinkedIn:</strong> <%= @contact_entries.linkedin %></li>
+		  <li class="list-group-item"><strong>Added by:</strong> <%= @contact_entries.added_by %></li>
+		</ul>
+	</div>
 
-    </main>
-
-  </div>
-</div>
+</main>

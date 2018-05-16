@@ -21,7 +21,7 @@ class ContactsController < ApplicationController
 
 	    respond_to do |format|
 	      if @contact_entries.save
-	        format.html { redirect_to contacts_path, notice: 'The new marketer was successfully added' }
+	        format.html { redirect_to contacts_path, alert: 'The new marketer was successfully added' }
 	      else
 	        format.html { render :new }
 	      end
@@ -37,7 +37,7 @@ class ContactsController < ApplicationController
 
     	respond_to do |format|
       		if @contact_entries.update(params.require(:contact).permit(:name, :seniority, :type_work, :location, :specialty, :linkedin, :added_by))
-        		format.html { redirect_to contact_path, notice: 'The record was successfully updated.' }
+        		format.html { redirect_to contact_path, alert: 'The record was successfully updated.' }
       		else
         		format.html { render :edit }
       		end

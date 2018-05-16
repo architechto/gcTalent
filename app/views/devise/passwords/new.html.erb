@@ -1,20 +1,19 @@
-<%= stylesheet_link_tag 'page_forms', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="text-center form-signin">
+  <h1 class="h3 mb-3 font-weight-normal">Password reset</h1>
+  <div>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
-<div class="text-center" style="margin:auto;">
-	<h1 class="h3 mb-3 font-weight-normal">Forgot your password?</h1>
+      <%= devise_error_messages! %>
 
-	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-		<%= devise_error_messages! %>
-
-		<div class="field">
-		<%= f.label :email, class: 'sr-only' %><br />
-		<%= f.email_field :email, class: 'form-control', placeholder: 'Email address', autofocus: true, autocomplete: "email" %>
-		</div>
-		<br/>
-		<div class="actions">
-		<%= f.submit "Send me reset password instructions", class: 'btn btn-lg btn-primary btn-block' %>
-		</div>
-	<% end %>
-
-	<%= render "devise/shared/links" %>
+      <div class="field">
+        <%= f.label :email, class: 'sr-only' %><br />
+        <%= f.email_field :email, class: 'form-control', placeholder: 'Email address', autofocus: true, autocomplete: "email" %>
+      </div>
+      <br/>
+      <div class="actions">
+        <%= f.submit "Enter", class: 'btn btn-lg btn-primary btn-block' %>
+      </div>
+    <% end %>
+  </div>
+  <%= render "devise/shared/links" %>
 </div>

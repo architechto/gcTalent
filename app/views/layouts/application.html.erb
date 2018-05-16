@@ -6,14 +6,29 @@
     <title>GcTalent</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container-fluid">
+      <div class="row">
 
-    <%= yield %>
+        <% if current_user %>
+          <%= render "/shared/topbar" %>
+          <%= render "/shared/sidebar" %>
+        <% end %>
+
+        <% if flash[:alert] %>
+          <%= js add_gritter(flash[:alert]) %>
+        <% elsif flash[:error] %>
+          <%= js add_gritter(flash[:error]) %>
+        <% else %>
+          <%= js add_gritter(flash[:notice]) %>
+        <% end %>
+
+        <%= yield %>
+
+      </div>
+    </div>
   </body>
 </html>
