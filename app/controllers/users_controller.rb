@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def show
-  	@user = User.find(params[:id])
+  	@users = User.find(params[:id])
+  	@contacts = Contact.find_by_added_by(:id)
   end
 
 end
