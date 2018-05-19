@@ -6,11 +6,11 @@
   </div>
 
   <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-sm text-center">
       <thead>
         <tr>
           <form method="POST" action="/">
-            <th>
+            <th class="text-left">
               <h6>Name</h6>
             </th>
             <th>
@@ -47,19 +47,19 @@
               </h6>
             </th>
             <th>
-              <input type="submit" class="btn btn-primary" value="Enter"/>
+              <input type="submit" class="btn btn-dark" value="Enter"/>
             </th>
           </tr>
         </form>
       </thead>
       <tbody>
-      <% @contact_entries.each do |contact_entries| %>
+        <% @contact_entries.each do |contact_entries| %>
           <tr>
-            <td><%= link_to contact_entries.name, contact_path(contact_entries) %></td>
+            <td class="text-left"><%= link_to contact_entries.name, contact_path(contact_entries) %></td>
             <td><%= contact_entries.type_work %></td>
             <td><%= contact_entries.seniority %></td>
             <td><%= contact_entries.location %></td>
-            <td><%= octicon "bookmark" %></td>
+            <td><button type="submit" class="btn-link" ><%= octicon "heart", :height => 20 %></button></td>
           </tr>
         <% end %>
       </tbody>

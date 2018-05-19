@@ -32,3 +32,4 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem "gritter", "1.2.0"
+gem 'octicons_helper'
