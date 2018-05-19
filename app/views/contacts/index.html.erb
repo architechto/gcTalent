@@ -2,10 +2,6 @@
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">List of Talent</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
-
-      <div class="mr-2">
-      </div>
-
     </div>
   </div>
 
@@ -13,11 +9,48 @@
     <table class="table table-striped table-sm">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type Work</th>
-          <th>Seniority</th>
-          <th>Location</th>
-        </tr>
+          <form method="POST" action="/">
+            <th>
+              <h6>Name</h6>
+            </th>
+            <th>
+              <h6>
+                Type Work:
+                <select name="type_work">
+                  <option value="" disabled selected>All</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </h6>
+            </th>
+            <th>
+              <h6>
+                Seniority:
+                <select name="seniority">
+                  <option value="" disabled selected>All</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                </select>
+                </h6>
+            </th>
+            <th>
+              <h6>
+                Location:
+                <select name="location">
+                  <option value="" disabled selected>All</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </h6>
+            </th>
+            <th>
+              <input type="submit" class="btn btn-primary" value="Enter"/>
+            </th>
+          </tr>
+        </form>
       </thead>
       <tbody>
       <% @contact_entries.each do |contact_entries| %>
@@ -26,6 +59,7 @@
             <td><%= contact_entries.type_work %></td>
             <td><%= contact_entries.seniority %></td>
             <td><%= contact_entries.location %></td>
+            <td><%= octicon "bookmark" %></td>
           </tr>
         <% end %>
       </tbody>
