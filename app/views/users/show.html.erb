@@ -7,7 +7,7 @@
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-				<h1 class="h2">Profile</h1>
+				<h1 class="h2"><%= @users.email %></h1>
 				<div class="btn-toolbar mb-2 mb-md-0">
 					<div class="btn-group mr-2">
 						<button class="btn btn-sm btn-default"><%= link_to "Back", :back %></button>
@@ -17,9 +17,15 @@
 					</div>
 				</div>
 			</div>
+			<br>
 
 			<div>
-				<p><%= @users.email %></p>
+				<h6>Contacts Added </h6>
+				<ul class="list-group">
+					<% @contacts.each do |c| %>
+						<li class="list-group-item"><%= c.name %></li>
+					<% end %>
+				</ul>
 			</div>
 
 		</main>
