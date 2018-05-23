@@ -1,6 +1,11 @@
 class ContactsController < ApplicationController
 
 	def index
+
+		@type_work = Contact.select(:type_work).map(&:type_work).uniq
+		@seniority = Contact.select(:seniority).map(&:seniority).uniq
+		@location = Contact.select(:location).map(&:location).uniq
+
 	    if current_user
 
 	    	tw = params[:type_work]

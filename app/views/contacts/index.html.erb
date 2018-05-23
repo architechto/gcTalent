@@ -16,10 +16,12 @@
             <th>
               <h6>
                 Type Work:
+
                 <select name="type_work">
                   <option value="" disabled selected>All</option>
-                  <option value="brand">brand</option>
-                  <option value="agency">agency</option>
+                  <% @type_work.each do |type_work| %>
+                    <option value="<%= type_work %>" <%= type_work == params[:type_work] ? "selected" : "" %> ><%= type_work %></option>
+                  <% end %>
                 </select>
               </h6>
             </th>
@@ -28,8 +30,9 @@
                 Seniority:
                 <select name="seniority">
                   <option value="" disabled selected>All</option>
-                  <option value="manager">manager</option>
-                  <option value="vp">vp</option>
+                  <% @seniority.each do |seniority| %>
+                    <option value="<%= seniority %>" <%= seniority == params[:seniority] ? "selected" : "" %> ><%= seniority %></option>
+                  <% end %>
                 </select>
                 </h6>
             </th>
@@ -38,19 +41,20 @@
                 Location:
                 <select name="location">
                   <option value="" disabled selected>All</option>
-                  <option value="Toronto">Toronto</option>
-                  <option value="Montreal">Montreal</option>
+                  <% @location.each do |location| %>
+                    <option value="<%= location %>" <%= location == params[:location] ? "selected" : "" %> ><%= location %></option>
+                  <% end %>
                 </select>
               </h6>
             </th>
             <th>
               <div class="btn-group" role="group">
-                <input type="submit" class="btn btn-dark" value="Filter"/>
-                <a href="/" class="btn btn-link">Clear</a>
+                <input type="submit" class="btn btn-outline-dark" value="Filter"/>
+                <a href="/" class="btn btn-outline-link">Clear</a>
               </div>
             </th>
-          </tr>
-        </form>
+          </form>
+        </tr>
       </thead>
       <tbody>
         <% @contact_entries.each do |contact_entries| %>
@@ -59,7 +63,10 @@
             <td><%= contact_entries.type_work %></td>
             <td><%= contact_entries.seniority %></td>
             <td><%= contact_entries.location %></td>
-            <td><button type="submit" class="btn-link" ><%= octicon "heart", :height => 20 %></button></td>
+            <td>
+              <button type="submit" class="btn btn-outline-success btn-sm">Recommend</button>
+              <button type="submit" class="btn btn-outline-primary btn-sm">Bookmark</button>
+            </td>
           </tr>
         <% end %>
       </tbody>
