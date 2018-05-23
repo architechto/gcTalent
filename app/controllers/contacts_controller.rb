@@ -2,7 +2,29 @@ class ContactsController < ApplicationController
 
 	def index
 	    if current_user
-		    @contact_entries = Contact.all
+
+	    	tw = params[:type_work]
+	    	sr = params[:seniority]
+	    	lt = params[:location]
+
+	    	if (tw && sr && lt) 
+			    @contact_entries = Contact.where(type_work:tw).where(seniority:sr).where(location:lt)
+			elsif (tw && sr) 
+			    @contact_entries = Contact.where(type_work:tw).where(seniority:sr)
+			elsif (tw && lt) 
+			    @contact_entries = Contact.where(type_work:tw).where(location:lt)
+			elsif (sr && lt) 
+			    @contact_entries = Contact.where(seniority:sr).where(location:lt)
+			elsif (tw) 
+			    @contact_entries = Contact.where(type_work:tw)
+			elsif (sr) 
+			    @contact_entries = Contact.where(seniority:sr)
+			elsif (lt) 
+			    @contact_entries = Contact.where(location:lt)
+			else
+			    @contact_entries = Contact.all 
+	    	end
+
 		else
 	        redirect_to new_user_session_path
 		end
